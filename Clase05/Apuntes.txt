@@ -1,0 +1,18 @@
+Clase 05: 
+Postman ---> maru.cardozo02@gmail.com
+
+en la url de get se pone http://localhost:8080/Clase05/clase.php
+seleccionando get u post se trabaja con la url de a donde se apunta
+
+Mas abajo se puede poner la clave y valor de lo enviado, que es la simulacion del formulario
+
+
+POST:
+
+Los parametros no se pasan seleccionando param, sino que se pasan por body. Alli es donde debe estar la clave y valor.
+
+Los datos no se pasan concatenando sino cuando se realizan inserts se pone value (????)
+bindvalue();
+execute(array($value))
+
+el PDO  se encarga de chequear las cosas, para evitar que se envie por lineas de codigo un drop de la base

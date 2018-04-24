@@ -1,4 +1,5 @@
 <?php
+    include_once("Entidades/Personas.php");
     class DB
     {
         public static function Test()
@@ -32,11 +33,40 @@
             $coneccionBase = new PDO($con,$user,$clave);
             return $coneccionBase;
         }
-        public static function InsertToDb($objPersona)
-        {
+
+        
+        public static function SelectListaDb(){
             $sql = self::ConexionDb();
-            $string = "INSERT TO "
-            $sql->query($string);
+            $query = $sql->query("select * from persons");
+            $listaPersonas = [];
+            while($fila = $query->fetch(PDO::FETCH_ASSOC)){
+                $person = new Person($fila["nombre"],$fila["apellido"],$fila["legajo"],$fila["dni"],$fila["imagen"]);
+                array_push($listaPersonas,$person);
+            }
+            return $listaPersonas;
+        }
+
+
+        
+        public static function InsertToDb($persona)
+        {
+            $auxiliar = false;
+            if($persona != "undefined")
+            {
+                $listaPersonas = self::SelectListaDb();
+                foreach ($listaPersonas as $p) {
+                    if($p->legajo==$persona->legajo)
+                    {
+                        $auxiliar = true;
+                        break;
+                    }
+                }
+                if(!$auxiliar)
+                {
+                    $sql = self::ConexionDb();
+                    $query = $sql->query("INSERT INTO persons (nombre, apellido, legajo, dni, imagen) VALUES ('$persona->nombre', '$persona->apellido', '$persona->legajo', '$persona->dni', '$persona->imagen');");
+                }
+            }
         }
         
     }

@@ -34,7 +34,7 @@
     function ObtenerImg()
     {
         $extension = explode("/",$_FILES["archivo"]["type"]);
-        $nameFile = "imagen-".$_POST["legajo"];
+        $nameFile = "imagen".$_POST["legajo"];
         return $nameFile.".".$extension[1];
     }
 

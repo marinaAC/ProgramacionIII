@@ -37,7 +37,7 @@ class Persona
         $personas= [];
         while (!feof($fp)) {
             $personaDatos = explode("-", fgets($fp));
-            if (count($personaDatos) == 6) {
+            if (count($personaDatos) == 5) {
                 $personas[] = new Persona($personaDatos[0], $personaDatos[1], $personaDatos[2], $personaDatos[3], $personaDatos[4]);
             }
         }

@@ -6,7 +6,7 @@
      * DEFINE DEL ARCHIVO DE TEXTO
      */
     define("AALUMNOS","ENTIDADES/ALUMNO/alumnos.txt");
-    define("FOTOS","ENTIDADES/ALUMNO/fotos");
+    define("FOTOS","ENTIDADES/ALUMNO/fotos/");
     define("BKUP","ENTIDADES/ALUMNO/backupFotos/");
 
     class AlumnoFile
@@ -71,7 +71,7 @@
                     $key->apellido = $alumno->apellido;
                     $key->foto = $alumno->foto;
                     $key->correo = $auxCorreo;
-                    AccionesArchivos::ModificarFile("archivo",$alumno->correo,FOTOS,$alumno->correo,BKUP);
+                    AccionesArchivos::ModificarFile("archivo",$key->correo.".jpeg",FOTOS,$key->correo,BKUP);
                     $return = true;
                     echo "Lo encontro ";
                     break;

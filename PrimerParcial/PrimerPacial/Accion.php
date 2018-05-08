@@ -79,12 +79,6 @@
                     $tabla = Inscripcion::Inscripciones($materia,$apellido);
                     echo "$tabla";
                     break;
-                    /*
-                case "borrarHelados":
-                    $sabor = $_GET["sabor"];
-                    $coso = "";
-                    HeladosFile::BorrarHelado(fileListaSabores,$sabor,$coso,urlImagenes,URLIMGBORRADAS);
-                    break;*/
                 default:
                     echo "No entro a ninguno de los casos anteriores";
                 break;
